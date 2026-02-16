@@ -1,47 +1,78 @@
-# Scramblr's RF Toolkit
+# RF CHAOS - Chaos via BLE / BT / WiFi / NFC / Etc via Android Phones
+### **RF CHAOS is an Android-Native WiFi, Bluetooth, BLE, and NFC scanner, logger, and explotation tool.**
+##### _Created By [Scramblr](https://github.com/scramblr) AKA [@notdan](https://x.com/notdan) AKA alotofnamesyoudontknow_
 
-Android-native WiFi, Bluetooth, and BLE scanner with WiGLE-compatible database logging and Signal Finder tracking mode.
+### **ℹ️ If you're itching to get the APK now, compiled releases are here: [RF-CHAOS .APK INSTALLERS](https://github.com/scramblr/RF-CHAOS/releases/) ℹ️**
 
-**Android Only** - No iOS support (iOS doesn't allow the low-level WiFi/BLE access needed for wardriving).
+# INTRODUCTION & PREFACE
+RF CHAOS is pretty heavily based on a bunch of tools that paved the way for Maximum Mobile Hacking over the years, including:
+- [WIGLE.NET](https://wigle.net)
+- [Sniffle](https://github.com/nccgroup/Sniffle)
+- [btrpa-scan](https://github.com/hackingdave/btrpa-scan)
+- [bsniffhub](https://github.com/homewsn/bsniffhub)
+- [bluez](https://github.com/bluez/bluez)
 
-## Features
+**..And many, many more tools and projects - too many to list.**
+
+_Shouts to [@HackingDave](https://x.com/HackingDave) who recently embarked on a project to specifically isolate and track BLE/Bluetooth MAC addresses - which has always been a big part of my grand idea for a mobile app that can be used to track stolen equipment. And wouldn't you know it, some scumbags just robbed some equipment from me that I still have the MAC addresses to! Anyways, I've been wanting to build a toolkit like RF-CHAOS for years now but just never got the time. I used the motivation from Dave's endeavor to go full throttle on the suite of things I've always wanted, and thus RF-CHAOS is now released. I'm releasing it publicly in the hopes you have some fun with it. Evil fun. 😈🤘_
+
+# PREFACE & SECURITY CONCERNS
+It turns out, for BLE especially, there's been some developments over the years that make targeting some devices more difficult than it used to be! I'm talking about those "Private MAC Addresses" that change every 15 minutes or so.
+### But don't worry, this tool will give you the ability to track and hunt equipment that is using this _SUPER SECURE PRIVACY FEATURE (lol)_ AKA Device Privacy via Resolvable Private Addresses (RPAs)!
+
+## THE "PRIVACY FEATURE" WHICH SPOOFS BLUETOOTH MAC ADDRESSES IS BULLSHIT.
+🚨👮⚠️ What is BLE/Bluetooth RPA Resolution/Tracking? It's the ability to track all of those phones and devices that made you think you might have regained some of your privacy back through that feature you've likely seen by now, the one that supposedly changes your device's MAC address to a spoofed private address. Your phone or device's MAC Addres changes to a new spoofed address every 15 minutes or so.
+
+And it's all just a fucking lie.
+
+#### Sadly, but predictably, this whole idea is basically bullshit and reeks of industry collusion with Law Enforcement Agencies to decieve consumers into having a false sense of security while they (as well as other determined adversaries) are able to track each new "Private MAC Address" with just one piece of information called an IRK (Identity Resolving Key). It takes knowing your device's IRK code - obtainable through a variety of methods - to decode and track every single new spoofed MAC address, making your device(s) every single movement, usually within a resolution of centimeters. 
+
+This, all while your device's menus list this as a "Privacy Feature" and proclaim to be protecting you against this very type of attack. Are you less than excited about being tracked by anyone, including Law Enforcement, at any time? Want to see how it works first hand? You're in the right place! Yes, there's details and more to this, so keep reading. 🚨👮⚠️
+
+ **TL;DR: Every single moment your Bluetooth Adapter is powered you are 100% trackable, even with Private MAC Spoofing turned on.**
+
+# ANDROID ONLY; IOS GTFO
+### **IMPORTANT: This project is, and likely will ALWAYS be Android Only.**
+##### _Why? Because Apple is obsessed with control and iOS rarely allows users or developers access to their own device's lower-level functions and APIs that are important to digging in to the full potential of the various radios that are inside of your pocket just waiting to be (ab)used. Also I don't feel like dealing with their App Store fees and other crap. I may release a version for jailbroken phones (if that's even still a thing). So, I guess I'm saying: Hold your breath for iOS version release date!!_
+
+# RF-CHAOS: Primary Features & Functions
 
 - **WiFi Scanning** - Detect networks with SSID, BSSID, channel, security type, signal strength
 - **BLE Scanning** - Bluetooth Low Energy device detection with manufacturer data
-- **BLE RPA Resolution** - Resolve Resolvable Private Addresses using Identity Resolving Keys (IRKs)
-- **Signal Finder** - Track specific devices by MAC address or IRK with haptic feedback
-- **GPS Logging** - Record coordinates for every network observation
-- **WiGLE Export** - Export to CSV format compatible with WiGLE.net uploads
-- **SQLite Database** - Local storage with WiGLE-compatible schema
+- **BLE RPA Resolution** - Resolve (and then track devices) via RPAs (Resolvable Private Addresses) by using IRK (Identity Resolving Key) values. _Basically, IRKs allow you to have the magic decoder ring for finding your target even when they're using a fake MAC address._
+- **Signal Finder** - Track specific devices by MAC address or IRK with haptic feedback - Works for WiFi as well as BLE/Bluetooth.
+- **GPS Logging** - Record coordinates for every network observation as well as route travelled, LOCALLY on your phone.
+- **WiGLE Export** - Export your local database to CSV format, specifically compatible with WiGLE.net's API/Systems in case you want to share with their platform!
+- **SQLite Database** - Local-Only Storage on Android Phone Only for Paranoid Types. Uses WiGLE-compatible schema for easy sharing in case you get frisky.
 
-## Prerequisites
+# RF-CHAOS: Required Stuff Needed to Build From Source
 
-### Required Software
+### Required Libraries & Software
 
 1. **Android Studio** (Hedgehog 2023.1.1 or newer)
    - Download: https://developer.android.com/studio
    
-2. **JDK 17** (usually bundled with Android Studio)
+2. **JDK 17** (usually with Android Studio)
 
 3. **Android SDK**
    - API Level 34 (Android 14)
    - Build Tools 34.0.0
-   - Android Studio will prompt to install these
+   - Android Studio will prompt to install these right after importing the project
 
-### Hardware
+### Hardware & Devices That Work
 
-- Android device running **Android 8.0 (API 26)** or higher
-- Device with WiFi and Bluetooth capabilities
-- GPS enabled
+- Android device running **Android 8.0 (API 26)** or higher. (It works with almost any phone made in the last 1,000 years)
+- Android must have WiFi & Bluetooth radios that aren't broken. Do I really need to write this? Probably.
+- GPS or GPS Spoofer Enabled. This is for the Mapping function and ZERO telemetry is ever sent to our servers or any servers (look at the source code)
 
-## Build Instructions
+# Building Your Own RF-CHAOS APK via Source Code
 
-### Step 1: Clone or Extract
+### Step 1: Clone or Extract from Github Repo
 
 ```bash
 # If using git
-git clone https://github.com/scramblr/rf-toolkit.git
-cd rf-toolkit
+git clone https://github.com/scramblr/RF-CHAOS.git
+cd RF-CHAOS
 
 # Or extract the zip file to a folder
 ```
@@ -50,63 +81,73 @@ cd rf-toolkit
 
 1. Launch Android Studio
 2. Select **File → Open**
-3. Navigate to the `rf-toolkit-android` folder
+3. Navigate to the `RF-CHAOS` folder
 4. Click **OK**
 5. Wait for Gradle sync to complete (may take several minutes on first run)
 
-### Step 3: Configure Google Maps (Optional)
+### Step 3: OPTIONAL: Add Google API Key for Google Maps if you hate FREE maps (included by default)
 
-If you want the Map feature to work:
+RF-CHAOS has OpenStreetMaps (free) built in by default. However, we get it - some people like paying Google.
 
 1. Get a Google Maps API key from https://console.cloud.google.com/
 2. Enable "Maps SDK for Android"
 3. Edit `app/src/main/AndroidManifest.xml`
-4. Replace `YOUR_GOOGLE_MAPS_API_KEY` with your actual key
+4. Replace `YOUR_GOOGLE_MAPS_API_KEY` with your actual key.
 
-### Step 4: Build APK
+### Step 4: Build Debug or Production Release APKs
 
-**Option A: Debug APK (for testing)**
+**Testing & Debug .APK or Bundle .AAB Packages**
+###### *NOTE: Menu wording may be slightly different depending on Android Studio version installed.
 ```
-Menu: Build → Build Bundle(s) / APK(s) → Build APK(s)
+Menu: Build → Generate and Build App Bundles or APKs → Generate APKs / Generate Bundles
 ```
-Output: `app/build/outputs/apk/debug/app-debug.apk`
 
-**Option B: Signed Release APK**
+```
+APK Output: `app/build/outputs/apk/debug/app-debug.apk`
+Bundle Output: `app/build/outputs/bundle/debug/app-debug.aab`
+```
+
+**Production Release .APK or Bundle .AAB Packages**
 1. Menu: Build → Generate Signed Bundle / APK
-2. Select APK
-3. Create or use existing keystore
+2. Select APK (Or Bundle if needed)
+3. Create or use existing keystore using prompts (Optional)
 4. Select "release" build variant
-5. Click Finish
 
-Output: `app/build/outputs/apk/release/app-release.apk`
+```
+APK Output: `app/release/app-release.apk`
+Bundle Output: `app/release/app-release.aab`
+```
 
-### Step 5: Install on Device
+### Step 5: Installation on Your Device
 
-**Via USB:**
-1. Enable Developer Options on your Android device
+- **Via USB ADB Bridge:**
+1. Enable Developer Options on your Android device (Tap your Android Build Version number 69 times)
 2. Enable USB Debugging
 3. Connect device via USB
-4. In Android Studio, click the green Run button
-5. Select your device
+4. In Android Studio, make sure your phone is listed in the upper right window text.
+5. Click the Green Run Button (Looks like Play Button)
 
-**Via APK file:**
-1. Copy the APK to your device
+Your phone should have RF-CHAOS installed on it within a few seconds! It'll request the 3 primary security permissions needed to search for signals and plot coordinates with GPS.
+
+- **Via APK file:**
+1. Copy the APK to your device (adb push filename.apk /sdcard/Download or wherever/)
 2. Enable "Install from unknown sources" in settings
-3. Open the APK file to install
+3. Open the APK file & install
 
-## Usage
+# RF-CHAOS USAGE
 
 ### Dashboard
 - Tap **START SCAN** to begin scanning
 - Networks appear in real-time as they're detected
-- Stats show WiFi, Bluetooth, new networks, and totals
-- GPS coordinates update as you move
+- Stats show things like the number of WiFi, Bluetooth, New Networks, Beacon Counts, and more.
+- Realtime GPS Coordinates (Latitude & Longitude) as you move, walk, drive, etc. 
 
 ### Signal Finder
-1. Enter a MAC address (e.g., `AA:BB:CC:DD:EE:FF`) or select an IRK
-2. Tap **START SEARCH**
-3. Move around - device vibrates when target is detected
-4. Signal strength and distance estimate update in real-time
+1. Select Bluetooth/BLE/WiFi/IRK
+2. Enter a MAC address (Format should be `AA:BB:CC:DD:EE:FF`) or IRK code.
+3. Tap **START SEARCH**
+4. Move around - device vibrates when target is detected
+5. Signal strength and distance estimate update in real-time and changes from Red to Green when getting closer.
 
 ### Database
 - View statistics on discovered networks
@@ -114,14 +155,14 @@ Output: `app/build/outputs/apk/release/app-release.apk`
 - **Clear All Data** - Permanently delete all stored data
 
 ### Settings
-- Enable/disable WiFi, BLE, Classic Bluetooth scanning
-- Set minimum signal strength threshold
-- Enable/disable GPS route logging
-- Configure vibration/sound feedback
+- Enable/disable WiFi, BLE, Classic Bluetooth scanning (Be sure to stop scanning before changing this. Might need app restart)
+- Set minimum signal strength threshold if needed.
+- Enable/disable GPS route logging (Optional)
+- Configure vibration/sound feedback (Optional)
 
-## Permissions
+## Permissions Needed to run RF-CHAOS
 
-The app requires these permissions:
+The app requires permissions to access the radios inside your phone or device. The App should NEVER phone home. All data stays on your device unless you EXPLICITLY want to share it with WIGLE.NET.
 
 | Permission | Reason |
 |------------|--------|
@@ -135,18 +176,20 @@ The app requires these permissions:
 ## WiGLE Integration
 
 ### Export Format
-The CSV export uses WiGLE's format:
+The CSV export uses WiGLE's format. We save it inside of an SQLite Database locally on your device with the following tables:
 ```
 MAC,SSID,AuthMode,FirstSeen,Channel,RSSI,CurrentLatitude,CurrentLongitude,AltitudeMeters,AccuracyMeters,Type
 ```
-
 ### Uploading to WiGLE
 1. Go to Database tab
 2. Tap "Export to CSV"
 3. Share/save the file
 4. Upload at https://wigle.net/uploads
 
-## BLE RPA Resolution
+---
+
+# PRIVACY NIGHTMARE MODE
+## BLE RPA Resolution & Tracking Devices Attempting to Hide with IRK Codes
 
 Bluetooth Low Energy devices can use Resolvable Private Addresses (RPAs) that change periodically. If you have a device's Identity Resolving Key (IRK), you can track it despite address changes.
 
@@ -210,15 +253,12 @@ app/src/main/
 - Delete `.gradle` folder in project root
 - Re-sync project
 
-## Credits
-
-- **btrpa-scan** by David Kennedy (@HackingDave) - BLE RPA resolution algorithm
-- **WiGLE WiFi Wardriving** - Database schema and export format inspiration
+## ©2026 SCRAMBLR AKA NOTDAN AKA IDUNNO
 
 ## License
 
-MIT License
+GNU General Public License
 
 ## Disclaimer
 
-This tool is for educational and authorized security research only. Always obtain permission before scanning networks you don't own. Users are responsible for complying with all applicable laws.
+Don't die!
