@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory android:title="Scanning">
+        <SwitchPreferenceCompat
+            android:key="wifi_enabled"
+            android:title="WiFi Scanning"
+            android:summary="Scan for WiFi networks"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="ble_enabled"
+            android:title="BLE Scanning"
+            android:summary="Scan for Bluetooth Low Energy devices"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="classic_bt_enabled"
+            android:title="Classic Bluetooth"
+            android:summary="Scan for classic Bluetooth devices"
+            android:defaultValue="false" />
+
+        <SeekBarPreference
+            android:key="min_rssi"
+            android:title="Minimum Signal Strength"
+            android:summary="Ignore networks weaker than this (-100 to -30 dBm)"
+            android:defaultValue="-90"
+            android:max="70"
+            app:min="0"
+            app:showSeekBarValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Display">
+        <ListPreference
+            android:key="update_interval"
+            android:title="Update Interval"
+            android:summary="How often to refresh the network list"
+            android:entries="@array/update_interval_entries"
+            android:entryValues="@array/update_interval_values"
+            android:defaultValue="1000" />
+
+        <SwitchPreferenceCompat
+            android:key="firehose_mode"
+            android:title="Firehose Mode"
+            android:summary="⚠️ CAUTION: Update on every detection. May crash in dense RF areas!"
+            android:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            android:key="sort_by_signal"
+            android:title="Sort by Signal Strength"
+            android:summary="Show strongest signals first in Recent Networks"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="GPS &amp; Route">
+        <SwitchPreferenceCompat
+            android:key="log_route"
+            android:title="Log GPS Route"
+            android:summary="Record your path during scanning for map display"
+            android:defaultValue="true" />
+
+        <SeekBarPreference
+            android:key="route_interval"
+            android:title="Route Point Interval (seconds)"
+            android:summary="How often to log GPS breadcrumb points"
+            android:defaultValue="5"
+            android:max="30"
+            app:min="1"
+            app:showSeekBarValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="BLE Privacy / IRK">
+        <SwitchPreferenceCompat
+            android:key="resolve_rpa"
+            android:title="Resolve RPA Addresses"
+            android:summary="Use stored IRKs to identify devices with rotating addresses"
+            android:defaultValue="true" />
+
+        <Preference
+            android:key="manage_irks"
+            android:title="Manage IRKs"
+            android:summary="Add, view, or remove Identity Resolving Keys" />
+
+        <Preference
+            android:key="extract_irks_root"
+            android:title="Extract IRKs (Root Required)"
+            android:summary="Read IRKs from /data/misc/bluedroid/bt_config.conf" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Signal Finder">
+        <SwitchPreferenceCompat
+            android:key="vibrate_enabled"
+            android:title="Vibration Feedback"
+            android:summary="Vibrate when target device is detected"
+            android:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            android:key="sound_enabled"
+            android:title="Sound Feedback"
+            android:summary="Play sound when target device is detected"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="About">
+        <Preference
+            android:key="version"
+            android:title="Version"
+            android:summary="1.1.0" />
+
+        <Preference
+            android:key="credits"
+            android:title="Credits"
+            android:summary="Based on btrpa-scan and WiGLE WiFi Wardriving" />
+
+        <Preference
+            android:key="irk_sniffing_info"
+            android:title="IRK Sniffing Info"
+            android:summary="Requires external hardware (TI CC1352, nRF52840). See Sniffle project." />
+    </PreferenceCategory>
+
+</PreferenceScreen>

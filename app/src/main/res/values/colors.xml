@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary">#00E5FF</color>
+    <color name="primary_dark">#00B8D4</color>
+    <color name="primary_light">#84FFFF</color>
+
+    <!-- Background Colors -->
+    <color name="background">#0A0E14</color>
+    <color name="surface">#141A22</color>
+    <color name="surface_elevated">#1C242E</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8892A0</color>
+    <color name="text_muted">#4A5568</color>
+    <color name="text_inverse">#0A0E14</color>
+
+    <!-- Signal Strength Colors -->
+    <color name="signal_excellent">#00E676</color>
+    <color name="signal_good">#76FF03</color>
+    <color name="signal_fair">#FFEB3B</color>
+    <color name="signal_weak">#FF9800</color>
+    <color name="signal_poor">#F44336</color>
+
+    <!-- Network Type Colors -->
+    <color name="wifi">#00E5FF</color>
+    <color name="bluetooth">#2196F3</color>
+    <color name="ble">#9C27B0</color>
+    <color name="cellular">#FF9800</color>
+
+    <!-- Status Colors -->
+    <color name="success">#00E676</color>
+    <color name="warning">#FFB300</color>
+    <color name="error">#FF5252</color>
+    <color name="info">#448AFF</color>
+
+    <!-- Security Colors -->
+    <color name="security_open">#FF5252</color>
+    <color name="security_wep">#FF9800</color>
+    <color name="security_wpa">#00E676</color>
+
+    <!-- Other -->
+    <color name="border">#2A3544</color>
+    <color name="divider">#1E2632</color>
+    <color name="overlay">#80000000</color>
+</resources>

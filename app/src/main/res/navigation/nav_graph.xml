@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.scramblr.rftoolkit.ui.dashboard.DashboardFragment"
+        android:label="@string/nav_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_map"
+        android:name="com.scramblr.rftoolkit.ui.map.MapFragment"
+        android:label="@string/nav_map" />
+
+    <fragment
+        android:id="@+id/navigation_finder"
+        android:name="com.scramblr.rftoolkit.ui.signalfinder.SignalFinderFragment"
+        android:label="@string/nav_finder" />
+
+    <fragment
+        android:id="@+id/navigation_database"
+        android:name="com.scramblr.rftoolkit.ui.database.DatabaseFragment"
+        android:label="@string/nav_database" />
+
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.scramblr.rftoolkit.ui.settings.SettingsFragment"
+        android:label="@string/nav_settings" />
+
+</navigation>

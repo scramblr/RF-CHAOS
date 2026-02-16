@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RF CHAOS</string>
+    
+    <!-- Navigation -->
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_map">Map</string>
+    <string name="nav_finder">Finder</string>
+    <string name="nav_database">Database</string>
+    <string name="nav_settings">Settings</string>
+    
+    <!-- Dashboard -->
+    <string name="start_scan">START SCAN</string>
+    <string name="stop_scan">STOP SCAN</string>
+    <string name="scanning">Scanning...</string>
+    <string name="waiting_gps">Waiting for GPS...</string>
+    <string name="recent_networks">Recent Networks</string>
+    
+    <!-- Signal Finder -->
+    <string name="signal_finder">Signal Finder</string>
+    <string name="mode_mac">Mode: MAC Address</string>
+    <string name="mode_irk">Mode: IRK</string>
+    <string name="start_search">START SEARCH</string>
+    <string name="stop_search">STOP</string>
+    <string name="searching">SEARCHING...</string>
+    <string name="target_detected">TARGET DETECTED</string>
+    
+    <!-- Database -->
+    <string name="export_csv">Export CSV</string>
+    <string name="clear_data">Clear All Data</string>
+    
+    <!-- Settings -->
+    <string name="wifi_scanning">WiFi Scanning</string>
+    <string name="ble_scanning">BLE Scanning</string>
+    <string name="classic_bluetooth">Classic Bluetooth</string>
+    <string name="min_rssi">Minimum RSSI</string>
+    <string name="log_route">Log GPS Route</string>
+    
+    <!-- Permissions -->
+    <string name="permission_location">Location permission is required for scanning</string>
+    <string name="permission_bluetooth">Bluetooth permission is required for scanning</string>
+    
+    <!-- Update interval arrays -->
+    <string-array name="update_interval_entries">
+        <item>1 second</item>
+        <item>2 seconds</item>
+        <item>3 seconds</item>
+        <item>4 seconds</item>
+        <item>5 seconds</item>
+    </string-array>
+    <string-array name="update_interval_values">
+        <item>1000</item>
+        <item>2000</item>
+        <item>3000</item>
+        <item>4000</item>
+        <item>5000</item>
+    </string-array>
+</resources>
