@@ -105,18 +105,18 @@
     <PreferenceCategory android:title="About">
         <Preference
             android:key="version"
-            android:title="Version"
-            android:summary="1.1.0" />
+            android:summary="1.0.0"
+            android:title="Version" />
 
         <Preference
             android:key="credits"
-            android:title="Credits"
-            android:summary="Based on btrpa-scan and WiGLE WiFi Wardriving" />
+            android:summary="©2026 SCRAMBLR"
+            android:title="Created By" />
 
         <Preference
             android:key="irk_sniffing_info"
-            android:title="IRK Sniffing Info"
-            android:summary="Requires external hardware (TI CC1352, nRF52840). See Sniffle project." />
+            android:summary="See Sniffle project for info on obtaining IRKs over the air with TI CC1352, nRF52840, etc"
+            android:title="IRK Sniffing Info" />
     </PreferenceCategory>
 
 </PreferenceScreen>

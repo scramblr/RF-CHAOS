@@ -38,6 +38,7 @@
                 android:fontFamily="monospace"
                 android:text="AA:BB:CC:DD:EE:FF"
                 android:textColor="@color/text_secondary"
+                android:textIsSelectable="true"
                 android:textSize="13sp" />
         </LinearLayout>
 
