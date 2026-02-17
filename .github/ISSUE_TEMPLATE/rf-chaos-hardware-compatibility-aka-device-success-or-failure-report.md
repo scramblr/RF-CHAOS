@@ -10,18 +10,22 @@ assignees: ''
 # Hardware Report For RF-CHAOS App
 Create a report to help us know which device(s) you're having success or failure with
 
-### Hardware Manufacturer
-[Motorola, Google, Samsung, etc]
+## Overall Status: **[Working / Mostly Working / Broken]** 
 
-### Hardware 
-Steps to reproduce the behavior:
+##### Please use the table below to fill in the sections after the :--: | :--: area. Use Preview at top to see how it looks.
+| Manufacturer | Model | Android Version | Android Kernel | Android Build | RF-CHAOS Version | Issue(s) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Motorola, Google, Samsung, etc | M16-5G | 19 | 1.23.44 | MOTO_USR_56K_BUILD | 1.0.0 | More Details About The Feedback You Have About Your Device and How It Works with RF-CHAOS |
+
+
+Steps to reproduce any issues:
 
 Go to '...'
 Click on '....'
 Scroll down to '....'
 See error
 Expected behavior
-A clear and concise description of what you expected to happen.
+What you expected to happen vs. what happened
 
 Screenshots
 If applicable, add screenshots to help explain your problem.
