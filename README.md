@@ -31,10 +31,7 @@ This, all while your device's menus list this as a "Privacy Feature" and proclai
 
  **TL;DR: Every single moment your Bluetooth Adapter is powered you are 100% trackable, even with Private MAC Spoofing turned on.**
 
-# ANDROID ONLY; IOS GTFO
-### **IMPORTANT: This project is, and likely will ALWAYS be Android Only.**
-##### _Why? Because Apple is obsessed with control and iOS rarely allows users or developers access to their own device's lower-level functions and APIs that are important to digging in to the full potential of the various radios that are inside of your pocket just waiting to be (ab)used. Also I don't feel like dealing with their App Store fees and other crap. I may release a version for jailbroken phones (if that's even still a thing). So, I guess I'm saying: Hold your breath for iOS version release date!!_
-
+---
 # RF-CHAOS: Primary Features & Functions
 
 - **WiFi Scanning** - Detect networks with SSID, BSSID, channel, security type, signal strength
