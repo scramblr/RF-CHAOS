@@ -1,7 +1,7 @@
 ---
 name: RF-CHAOS Hardware Compatibility AKA Device Success or Failure Report
 about: This Device Report will help us understand which devices work best with RF-CHAOS
-title: "[HARDWARE REPORT]"
+title: "[HARDWARE REPORT] Replace This With Your Device's Make & Model"
 labels: Device Report
 assignees: ''
 
