@@ -14,9 +14,11 @@ RF CHAOS is pretty heavily based on a bunch of tools that paved the way for Maxi
 
 **..And many, many more tools and projects - too many to list.**
 
-_Shouts to [@HackingDave](https://x.com/HackingDave) who recently embarked on a project to specifically isolate and track BLE/Bluetooth MAC addresses - which has always been a big part of my grand idea for a mobile app that can be used to track stolen equipment. And wouldn't you know it, some scumbags just robbed some equipment from me that I still have the MAC addresses to! Anyways, I've been wanting to build a toolkit like RF-CHAOS for years now but just never got the time. I used the motivation from Dave's endeavor to go full throttle on the suite of things I've always wanted, and thus RF-CHAOS is now released. I'm releasing it publicly in the hopes you have some fun with it. Evil fun. 😈🤘_
+I've been wanting to build a toolkit like RF-CHAOS for years now but just never got the time or opportunity. So, since I saw some motivation via X I figured might as well do it up. Since there's already a bunch of tools that exist for this on computer platforms, I figured I'd focus my effort on mobile devices, and since Android is the only one that allows low level access to WiFi/BLE/Bluetooth/etc, they were the winner!
 
-# PREFACE & SECURITY CONCERNS
+I hope you have some fun with it. Evil fun. 😈🤘
+
+# WELL OF COURSE THERE'S SECURITY CONCERNS
 It turns out, for BLE especially, there's been some developments over the years that make targeting some devices more difficult than it used to be! I'm talking about those "Private MAC Addresses" that change every 15 minutes or so.
 ### But don't worry, this tool will give you the ability to track and hunt equipment that is using this _SUPER SECURE PRIVACY FEATURE (lol)_ AKA Device Privacy via Resolvable Private Addresses (RPAs)!
 
@@ -82,14 +84,16 @@ cd RF-CHAOS
 4. Click **OK**
 5. Wait for Gradle sync to complete (may take several minutes on first run)
 
-### Step 3: OPTIONAL: Add Google API Key for Google Maps if you hate FREE maps (included by default)
+### Step 3: Configure No Google Maps API Keys Because We Use OpenStreetMaps (free + unlimited) instead!
+In a release coming in the next few weeks you'll have the option to switch to Google Maps SDK. I even staged the Manifest Instructions:
 
-RF-CHAOS has OpenStreetMaps (free) built in by default. However, we get it - some people like paying Google.
-
+```
+0. Wait for feature to actually be built and tested.
 1. Get a Google Maps API key from https://console.cloud.google.com/
 2. Enable "Maps SDK for Android"
 3. Edit `app/src/main/AndroidManifest.xml`
 4. Replace `YOUR_GOOGLE_MAPS_API_KEY` with your actual key.
+```
 
 ### Step 4: Build Debug or Production Release APKs
 
